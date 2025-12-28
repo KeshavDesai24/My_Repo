@@ -7,95 +7,183 @@
     <title>Git & GitHub with Keshav</title>
 </head>
 <body>
-    <div class="container">
+
+<div class="container">
+
     <h1>Let's learn Git & GitHub today.</h1>
 
     <h2>What is Git?</h2>
     <p>
-        Git is a distributed version control system.
-        It tracks changes in files and helps manage code history.
+        Git is a distributed version control system (VCS).
+        It allows multiple people to work on the same codebase by tracking and managing changes to files.
     </p>
 
-    <h2>What is GitHub?</h2>
+    <h2>What is a Version Control System (VCS)?</h2>
     <p>
-        GitHub is a cloud platform that hosts Git repositories.
-        It helps teams collaborate, review code, and manage projects.
+        A version control system records every change made to a file.
+        It allows you to view history, restore previous versions, and identify who made specific changes.
     </p>
 
-    <h2>Basic Git Workflow</h2>
-    <p>
-        Working Directory → Staging Area → Commit History
-    </p>
+    <h2>Key Features of Git</h2>
+    <ul>
+        <li>Backup and Restore, files are protected against accidental loss</li>
+        <li>Collaboration, multiple users work simultaneously on the same project</li>
+        <li>Branching and Merging, users experiment safely and merge changes later</li>
+        <li>Change Tracking, view what changed and who changed it</li>
+    </ul>
 
-    <h2>Important Git Commands</h2>
+    <h2>Git Configuration</h2>
+
+    <h3>Configure username and email</h3>
+    <p>Identifies the user making commits.</p>
+    <p>git config --global user.name "username"</p>
+    <p>git config --global user.email "mailid"</p>
+
+    <h3>View configuration</h3>
+    <p>git config --list</p>
+
+    <h2>Initializing and Tracking</h2>
 
     <h3>git init</h3>
-    <p>
-        Initializes a new Git repository in the current folder.
-    </p>
+    <p>Initializes a new Git repository.</p>
 
     <h3>git status</h3>
-    <p>
-        Shows the current state of files.
-        Displays staged, unstaged, and untracked files.
-    </p>
+    <p>Shows the current state of the working directory and staging area.</p>
 
     <h3>git add</h3>
-    <p>
-        Moves selected changes to the staging area.
-        Prepares files for commit.
-    </p>
+    <p>Adds files to the staging area.</p>
+    <p>git add filename</p>
+    <p>git add .</p>
 
     <h3>git commit</h3>
+    <p>Creates a permanent snapshot of staged changes.</p>
+    <p>git commit -m "commit message"</p>
+
+    <h2>Git Workflow</h2>
     <p>
-        Creates a snapshot of staged changes.
-        Saves them permanently in the repository history.
+        Working Directory → Staging Area → Local Repository
     </p>
+
+    <h2>History and Comparison</h2>
 
     <h3>git log</h3>
-    <p>
-        Displays the commit history.
-        Shows commit IDs, authors, and messages.
-    </p>
+    <p>Displays commit history.</p>
 
-    <h3>git branch</h3>
-    <p>
-        Lists all branches.
-        Helps manage parallel development.
-    </p>
+    <h3>git diff</h3>
+    <p>Shows differences between older and newer versions.</p>
 
-    <h3>git checkout</h3>
-    <p>
-        Switches between branches or commits.
-    </p>
+    <h3>git show</h3>
+    <p>Displays detailed information about a commit.</p>
+    <p>git show commit_id filename</p>
 
-    <h3>git merge</h3>
+    <h3>git checkout (file)</h3>
+    <p>Restores a specific file from a commit.</p>
+    <p>git checkout commit_id -- filename</p>
+
+    <h3>git checkout (branch)</h3>
+    <p>Switches branches or restores the latest version.</p>
+    <p>git checkout branch_name</p>
+
+    <h2>Undo and Recovery Cases</h2>
+
+    <h3>Discard working directory changes</h3>
+    <p>git restore filename</p>
+
+    <h3>Unstage files</h3>
+    <p>git restore --staged file_path</p>
+
+    <h3>View staged changes</h3>
+    <p>git diff --cached</p>
+
+    <h3>Restore both staging and working tree</h3>
+    <p>git restore --worktree index.html</p>
+
+    <h3>Undo commits</h3>
+    <p>git reset --soft HEAD^</p>
+    <p>git reset --hard HEAD^</p>
+
+    <h2>Advanced git log Options</h2>
+
+    <p>git log -p -n</p>
+    <p>git log --stat</p>
+    <p>git log --pretty=oneline</p>
+    <p>git log --pretty=format:"%h %an %ar %s"</p>
+    <p>git log -S function_name</p>
+    <p>git log --grep="search"</p>
+    <p>git log --since="2024-01-01"</p>
+    <p>git log --until="2024-12-31"</p>
+    <p>git log --author="Keshav"</p>
+    <p>git log --no-merges</p>
+
+    <h2>Remote Repository</h2>
+
     <p>
-        Combines changes from one branch into another.
+        A remote repository is a version of your project hosted on the internet or a network server.
     </p>
 
     <h3>git clone</h3>
-    <p>
-        Creates a local copy of a remote repository.
-    </p>
-
-    <h3>git pull</h3>
-    <p>
-        Fetches and merges changes from the remote repository.
-    </p>
+    <p>Creates a local copy of a remote repository.</p>
+    <p>git clone https_link_from_github</p>
 
     <h3>git push</h3>
+    <p>Pushes local commits to the remote repository.</p>
+
+    <h3>git pull</h3>
+    <p>Fetches and merges changes from remote to local.</p>
+
+    <h2>Branching and Merging</h2>
+
+    <h3>git branch</h3>
+    <p>Lists branches or shows current branch.</p>
+
+    <h3>Create and switch branch</h3>
+    <p>git checkout -b branch_name</p>
+
+    <h3>Switch branches</h3>
+    <p>git checkout branch_name</p>
+
+    <h3>Merge branches</h3>
+    <p>git merge new_branch</p>
+
+    <h2>Forking</h2>
     <p>
-        Uploads local commits to the remote repository.
+        Forking creates a personal copy of another user’s repository to modify and propose changes via pull requests.
     </p>
 
-    <h2>Key Points to Remember</h2>
+    <h2>.gitignore</h2>
+    <p>
+        Specifies files and folders Git should ignore.
+        Useful for sensitive or unnecessary files.
+    </p>
+
+    <h2>Cleaning Repository</h2>
+
+    <p>git clean -n</p>
+    <p>git clean -f</p>
+
+    <h2>Git Tags</h2>
+
+    <p>
+        Tags mark specific commits with meaningful identifiers.
+    </p>
+
+    <p>git tag -a tag_name -m "message"</p>
+    <p>git show tag_name</p>
+    <p>git tag -a tag_name commit_id</p>
+    <p>git tag -d tag_name</p>
+    <p>git push origin tag_name</p>
+    <p>git push origin --tags</p>
+
+    <h2>Key Takeaways</h2>
     <ul>
-        <li>Git tracks changes, not files alone</li>
-        <li>Commits are permanent snapshots</li>
-        <li>Staging controls what goes into a commit</li>
-        <li>GitHub is for collaboration</li>
+        <li>Git tracks changes, not just files</li>
+        <li>Commits are permanent checkpoints</li>
+        <li>Staging controls what goes into history</li>
+        <li>Branches enable safe experimentation</li>
+        <li>GitHub enables collaboration at scale</li>
     </ul>
-    </div>
+
+</div>
+
 </body>
 </html>
